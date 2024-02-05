@@ -28,6 +28,7 @@
     "@steamship/client": "^3.3.3",
     "@steamship/react": "^0.13.0",
     "@vercel/kv": "^1.0.1",
+    "@vercel/speed-insights": "^1.0.9",
     "ai": "^2.2.31",
     "axios": "^1.6.7",
     "class-variance-authority": "^0.7.0",

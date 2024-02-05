@@ -4,6 +4,8 @@ import { ClerkProvider } from "@clerk/nextjs";
 import Navbar from "@/components/navbar";
 import { Toaster } from "react-hot-toast";
 import ModalProvider from "@/components/modal-provider";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,6 +24,7 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         <ModalProvider/>
         <Toaster/>
+        <SpeedInsights/>
         {children}
         </body>
      
