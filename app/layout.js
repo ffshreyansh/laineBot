@@ -5,6 +5,7 @@ import Navbar from "@/components/navbar";
 import { Toaster } from "react-hot-toast";
 import ModalProvider from "@/components/modal-provider";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from '@vercel/analytics/react';
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -25,6 +26,7 @@ export default function RootLayout({ children }) {
         <ModalProvider/>
         <Toaster/>
         <SpeedInsights/>
+        <Analytics />
         {children}
         </body>
      
