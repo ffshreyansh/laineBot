@@ -26,7 +26,6 @@ export default async function ChatPage({ params }) {
   }
 
   const chat = await getChat(params.id, session?.userId);
-  console.log('Chattttt', chat)
   if (!chat) {
     notFound();
   }

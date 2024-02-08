@@ -4,7 +4,8 @@ import prismadb from '@/lib/prismadb';
 import { stripe } from '@/lib/stripe';
 import { absoluteUrl } from '@/lib/utils';
 
-const settingsUrl = absoluteUrl('/settings');
+const settingsUrl = absoluteUrl('/success');
+const cancelUrl = absoluteUrl('/error-occured')
 
 export async function GET(){
     try {
@@ -30,7 +31,7 @@ export async function GET(){
 
         const stripeSession = await stripe.checkout.sessions.create({
             success_url: settingsUrl,
-            cancel_url: settingsUrl,
+            cancel_url: cancelUrl,
             payment_method_types: ['card'],
             mode: 'subscription',
             billing_address_collection: 'auto',

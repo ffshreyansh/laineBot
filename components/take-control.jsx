@@ -20,7 +20,7 @@ const TakeControl = () => {
                 <h3 className='font-bold text-2xl lg:text-3xl mx-auto text-center mb-5'>Take Control of Your mental wellbeing Journey</h3>
             </div>
 
-            <div className='flex flex-col lg:flex-row gap-5 lg:gap-0 items-center justify-between w-full'>
+            <div className='flex flex-col lg:flex-row gap-5 lg:gap-0 items-start justify-between w-full'>
                 <motion.div className='flex flex-col items-center gap-3 p-4 w-full lg:w-1/4 h-fit lg:h-fit rounded-md'
                     variants={fadeInUpVariants}
                     initial="hidden"
