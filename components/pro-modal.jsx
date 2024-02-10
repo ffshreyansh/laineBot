@@ -56,10 +56,11 @@ const ProModal = () => {
   }
 
   return (
-    <Dialog open={proModal.isOpen}onOpenChange={proModal.onClose} className=' max-w-2xl'>
+    <Dialog open={proModal.isOpen}onOpenChange={proModal.onClose} className=''>
   <DialogContent>
     <DialogHeader>
       <DialogTitle className='flex items-center justify-center gap-2'>Upgrade to Lainie <Badge className={'bg-[#e87749]'}>PRO</Badge></DialogTitle>
+      <p className='text-center w-full lg:w-1/2 mx-auto text-sm text-muted-foreground'>You have exhausted your 10 message free limit. Upgrade to continue the chats</p>
       <DialogDescription className="text-center pt-2 space-y-2 text-zinc-900 font-medium">
       <div className="flex flex-col lg:flex-row items-center gap-4 justify-center w-full">
           

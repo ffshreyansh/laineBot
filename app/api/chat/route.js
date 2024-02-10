@@ -6,7 +6,7 @@ import OpenAI from 'openai'
 import { nanoid } from '@/lib/utils'
 import { auth, currentUser, useUser,  } from '@clerk/nextjs'
 import { NextResponse } from 'next/server'
-import { checkApiLimit } from '@/lib/api-limits'
+import { checkApiLimit, increaseApiLimit } from '@/lib/api-limits'
 import { checkSubscription } from '@/lib/subscriptions'
 
 // export const runtime = 'edge'
@@ -56,8 +56,10 @@ export async function POST(req) {
         temperature: 0.7,
         stream: true,
         max_tokens: 50
-    })
-console.log(kk);
+    });
+
+    await increaseApiLimit();
+
     const stream = OpenAIStream(res, {
         async onCompletion(completion) {
             const title = json.messages[0].content.substring(0, 100)

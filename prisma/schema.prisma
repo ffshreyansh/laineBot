@@ -11,13 +11,12 @@ datasource db {
 }
 
 model UserAPILimit {
-  id        String   @id @default(cuid()) @map("_id")
-  userId    String   @unique
-  premium   Boolean  @default(false)
+  id String @id @default(cuid()) @map("_id")
+  userId String @unique
+  count Int @default(0)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
-
 model UserSubscription {
   id                     String    @id @default(cuid()) @map("_id")
   userId                 String    @unique

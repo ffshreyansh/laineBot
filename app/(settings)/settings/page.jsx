@@ -4,17 +4,19 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import Navbar from "@/components/navbar";
 import axios from "axios";
+import NavSetting from "@/components/nav-setting";
+import { auth, currentUser, useAuth } from "@clerk/nextjs";
 // import { useState } from "react";
 
 const SettingsPage = async () => {
-
   const isPro = await checkSubscription();
-
+  const {userId} = auth()
+ 
   return (
-    <>
-      <Navbar />
+   (userId && <>
+      <NavSetting/>
       <SubscriptionButton isPro={isPro}/>
-    </>
+    </>)
   );
 }
 
