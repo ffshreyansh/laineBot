@@ -50,10 +50,6 @@ export const SubscriptionButton = ({
   };
 
   return (
-    // <Button variant={isPro ? "pro" : "nav"} className='w-full' disabled={loading} onClick={onClick} >
-    //   {isPro ? "Manage Subscription" : "Upgrade"}
-    //   {!isPro && <Zap className="w-4 h-4 ml-2 fill-white" />}
-    // </Button>
     <div className="flex flex-col items-center justify-center h-full py-10 px-3 lg:px-0 lg:h-screen">
     <div className={`w-full lg:w-1/2 text-center space-y-5`}>
       <h2 className="text-3xl font-bold mt-20 lg:mt-0">{isPro ? 'Manage your subscription' : 'Get Lainie Pro'}</h2>
@@ -66,10 +62,6 @@ export const SubscriptionButton = ({
               <CardTitle className='text-xl font-bold'>Manage your Subscription</CardTitle>
               {/* <CardDescription>Lorem, ipsum dolor sit amet consectetur adipisicing elit. In, ea.</CardDescription> */}
             </CardHeader>
-            {/* <CardContent>
-          <span className="text-2xl font-bold">$10.99</span>
-          <span className=" text-muted-foreground">/month</span>
-        </CardContent> */}
             <CardFooter>
               {/* <SubscriptionButton isPro={isPro} /> */}
               <ManageSub isPro={isPro}/>
@@ -81,7 +73,13 @@ export const SubscriptionButton = ({
         <Card className='w-full lg:w-1/2'>
           <CardHeader>
             <CardTitle className='text-xl font-bold'>Lainie Pro - Monthly</CardTitle>
-            {/* <CardDescription>Lorem, ipsum dolor sit amet consectetur adipisicing elit. In, ea.</CardDescription> */}
+            <CardDescription className='text-md border rounded-lg flex flex-col gap-3 py-4'>
+              <p className="flex items-center gap-1 justify-center"><span><img src="/tick.svg" alt="" className="w-5 h-5" /></span>Unlimited Messages</p>
+              <p className="flex items-center gap-1 justify-center"><span><img src="/tick.svg" alt="" className="w-5 h-5" /></span>Unlimited Chat History</p>
+              <p className="flex items-center gap-1 justify-center"><span><img src="/tick.svg" alt="" className="w-5 h-5" /></span>24/7 Available</p>
+              <p className="flex items-center gap-1 justify-center"><span><img src="/tick.svg" alt="" className="w-5 h-5" /></span>Billed Monthly</p>
+             
+            </CardDescription>
           </CardHeader>
           <CardContent>
             <span className="text-2xl font-bold">$10.99</span>
@@ -94,10 +92,16 @@ export const SubscriptionButton = ({
         <Card className='w-full lg:w-1/2'>
           <CardHeader>
             <CardTitle className='text-xl font-bold flex item gap-2 justify-center'>Lainie Pro - Yearly
-              <Badge className={'bg-[#e87749]'}>20% Off</Badge>
+              <Badge className={'bg-[#f364b8]'}>20% Off</Badge>
             </CardTitle>
-            {/* <CardDescription>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, perspiciatis?</CardDescription> */}
-          </CardHeader>
+            <CardDescription className='text-md border rounded-lg flex flex-col gap-3 py-4'>
+              <p className="flex items-center gap-1 justify-center"><span><img src="/tick.svg" alt="" className="w-5 h-5" /></span>Unlimited Messages</p>
+              <p className="flex items-center gap-1 justify-center"><span><img src="/tick.svg" alt="" className="w-5 h-5" /></span>Unlimited Chat History</p>
+              <p className="flex items-center gap-1 justify-center"><span><img src="/tick.svg" alt="" className="w-5 h-5" /></span>24/7 Available</p>
+              <p className="flex items-center gap-1 justify-center"><span><img src="/tick.svg" alt="" className="w-5 h-5" /></span>Billed Monthly</p>
+             
+            </CardDescription>
+           </CardHeader>
           <CardContent>
             <span className="text-2xl font-bold">$105.50</span>
             <span className=" text-muted-foreground">/year</span>

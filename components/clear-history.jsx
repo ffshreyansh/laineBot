@@ -48,6 +48,7 @@ export function ClearHistory({
           <AlertDialogCancel disabled={isPending}>Cancel</AlertDialogCancel>
           <AlertDialogAction
             disabled={isPending}
+            
             onClick={event => {
               event.preventDefault()
               startTransition(() => {

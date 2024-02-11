@@ -59,7 +59,7 @@ const ProModal = () => {
     <Dialog open={proModal.isOpen}onOpenChange={proModal.onClose} className=''>
   <DialogContent>
     <DialogHeader>
-      <DialogTitle className='flex items-center justify-center gap-2'>Upgrade to Lainie <Badge className={'bg-[#e87749]'}>PRO</Badge></DialogTitle>
+      <DialogTitle className='flex items-center justify-center gap-2'>Upgrade to Lainie <Badge className={'bg-[#f364b8]'}>PRO</Badge></DialogTitle>
       <p className='text-center w-full lg:w-1/2 mx-auto text-sm text-muted-foreground'>You have exhausted your 10 message free limit. Upgrade to continue the chats</p>
       <DialogDescription className="text-center pt-2 space-y-2 text-zinc-900 font-medium">
       <div className="flex flex-col lg:flex-row items-center gap-4 justify-center w-full">
@@ -67,7 +67,7 @@ const ProModal = () => {
           <Card className='w-full lg:w-1/2'>
              <CardHeader>
                <CardTitle className='text-xl font-bold'>Lainie Pro - Monthly</CardTitle>
-               <CardDescription>Lorem, ipsum dolor sit amet consectetur adipisicing elit. In, ea.</CardDescription>
+               <CardDescription>Get unlimited messages and chat history. Billed Monthly</CardDescription>
              </CardHeader>
              <CardContent>
                <span className="text-2xl font-bold">$10.99</span>
@@ -80,9 +80,9 @@ const ProModal = () => {
            <Card className='w-full lg:w-1/2'>
              <CardHeader>
                <CardTitle className='text-xl font-bold flex item gap-2 justify-center'>Lainie Pro - Yearly 
-               <Badge className={'bg-[#e87749]'}>20% Off</Badge>
+               <Badge className={'bg-[#f364b8]'}>20% Off</Badge>
                </CardTitle>
-               <CardDescription>Lorem ipsum dolor sit amet consectetur adipisicing elit.</CardDescription>
+               <CardDescription>Get unlimited messages and chat history. Billed Annualy</CardDescription>
              </CardHeader>
              <CardContent>
              <span className="text-2xl font-bold">$105.50</span>

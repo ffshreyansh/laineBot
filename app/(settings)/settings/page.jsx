@@ -6,7 +6,6 @@ import Navbar from "@/components/navbar";
 import axios from "axios";
 import NavSetting from "@/components/nav-setting";
 import { auth, currentUser, useAuth } from "@clerk/nextjs";
-// import { useState } from "react";
 
 const SettingsPage = async () => {
   const isPro = await checkSubscription();
