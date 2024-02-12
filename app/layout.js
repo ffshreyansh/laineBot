@@ -11,7 +11,8 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Lainie | Mental health coach",
-  description: "Your 24/7 mental health coach",
+  description: "Lainie.co is your trusted online destination for personalized mental health support and guidance. Our empathetic AI chatbot provides a judgment-free space for open conversations, tailored to your unique needs. Start your journey to emotional well-being with Lainie.co today.",
+  keywords: "Mental health support, Online therapy alternative, AI chatbot counseling, Personalized mental wellnes, Judgment-free conversations, Emotional support chatbot, Virtual therapy companion, Empathetic mental health guidance, Online mental wellness platform, AI counseling service"
 };
 
 export default function RootLayout({ children }) {
