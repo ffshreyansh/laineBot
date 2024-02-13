@@ -15,6 +15,7 @@ const SuccessPage = () => {
             <Link href={'/chat'} className='w-full'>
             <Button variant="home" className='w-full'>Continue to Laine</Button>
             </Link>
+            {/* none */}
         </div>
     </div>)
   )
