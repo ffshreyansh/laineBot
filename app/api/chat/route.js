@@ -53,7 +53,9 @@ export async function POST(req) {
         messages: [instructionMessage, ...messages],
         temperature: 0.7,
         stream: true,
-        max_tokens: 62
+        max_tokens: 100,
+        stop:["\n"]
+
     });
 
     await increaseApiLimit();
