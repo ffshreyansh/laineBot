@@ -27,14 +27,14 @@ const Home = () => {
         className='flex flex-col text-center lg:text-left items-start w-full lg:w-1/2 h-fit lg:h-fit justify-center gap-4 lg:gap-10 px-3 lg:px-8'
        
       >
-        <motion.h1 className='font-bold text-4xl lg:text-6xl'
+        <motion.h1 className='font-bold text-4xl lg:text-6xl mx-auto lg:mx-0'
          variants={fadeInUpVariants2}
          initial="hidden"
          animate={inView ? "visible" : "hidden"}
          transition={{ type: "spring", stiffness: 100, damping: 10, duration: 0.2 }}
 
         >Welcome to Lainie.</motion.h1>
-        <motion.p className="text-lg lg:text-xl text-muted-foreground"
+        <motion.p className="text-lg lg:text-xl text-muted-foreground  mx-auto lg:mx-0"
          variants={fadeInUpVariants2}
          initial="hidden"
          animate={inView ? "visible" : "hidden"}
@@ -58,7 +58,7 @@ const Home = () => {
         animate={inView ? "visible" : "hidden"}
         transition={{ damping: 10, duration: 0.8 }}
       >
-        <img src="/anxiet.svg" className='mx-auto w-3/4 lg:ml-auto lg:mr-0 my-auto' alt="" />
+        <img src="/anxiet.svg" className='mx-auto w-3/4 md:w-1/2 lg:w-3/4 lg:ml-auto lg:mr-0 my-auto' alt="" />
       </motion.div>
     </div>
   )
