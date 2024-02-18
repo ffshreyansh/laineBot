@@ -17,7 +17,7 @@ const Footer = () => {
 
       
     return (
-        <div className='bg-black text-white  text-center p-10'>
+        <footer className='bg-black text-white  text-center p-10'>
             <div className='w-full h-fit flex flex-col gap-8 lg:gap-0 lg:flex-row items-center justify-center lg:justify-between mx-auto max-w-screen-xl'>
                 <div className='w-1/2 flex flex-col items-start gap-10'>
                     <span className='text-2xl font-bold w-28'>
@@ -45,7 +45,7 @@ const Footer = () => {
                     <p className='text-xs text-muted-foreground mx-auto lg:mx-0'>Copyright © 2024 Lainie </p>
                 </div>
             </div>
-        </div>
+        </footer>
     )
 }
 

@@ -8,6 +8,7 @@ import { MenuIcon } from 'lucide-react';
 import { useInView } from 'react-intersection-observer';
 import { motion } from 'framer-motion';
 import { useAuth } from '@clerk/nextjs';
+import Image from 'next/image';
 
 const Navbar = () => {
   const pathname = usePathname();
@@ -49,11 +50,11 @@ const Navbar = () => {
   }
 
   return (
-    <motion.div ref={ref} className={`flex items-center justify-between py-4 bg-white fixed max-w-screen-xl w-full top-0 lg:top-5 z-50 rounded-none lg:rounded-lg pr-3 lg:pr-4 pl-3 lg:pl-8 left-1/2 right-1/2 -translate-x-1/2 ${hasScrolled ? 'shd transition-all' : 'transition-all'}`}
+    <motion.nav ref={ref} className={`flex items-center justify-between py-4 bg-white fixed max-w-screen-xl w-full top-0 lg:top-5 z-50 rounded-none lg:rounded-lg pr-3 lg:pr-4 pl-3 lg:pl-8 left-1/2 right-1/2 -translate-x-1/2 ${hasScrolled ? 'shd transition-all' : 'transition-all'}`}
       transition={{ duration: 0.2 }}
     >
       <Link href={'/'} className={`font-bold text-3xl`}>
-        <img src="/serene.png" alt="lainie logo" width={'30%'} />
+        <Image src="/serene.png" alt="lainie logo" width={120} height={60} />
       </Link>
       <div className='items-center justify-between gap-10 font-semibold hidden lg:flex cursor-pointer'>
         <Link href={'/'} onClick={() => scrollToElement('home')} className={isCurrentPage('/') ? 'text-[#f05aad]' : 'text-black hover:text-[#f05aad] transition-all'}>Home</Link>
@@ -81,7 +82,7 @@ const Navbar = () => {
         </SheetContent>
       </Sheet>
 
-    </motion.div>
+    </motion.nav>
   )
 }
 

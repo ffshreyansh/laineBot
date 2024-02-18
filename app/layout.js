@@ -6,6 +6,8 @@ import { Toaster } from "react-hot-toast";
 import ModalProvider from "@/components/modal-provider";
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import Head from "next/head";
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,9 +21,23 @@ export default function RootLayout({ children }) {
   return (
     <ClerkProvider>
       <html lang="en">
-        <head>
-          <script src="https://telegram.org/js/telegram-web-app.js"></script>
-        </head>
+        <Head>
+          <Script
+            strategy="lazyOnload"
+            src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GOOGLE_ANALYTICS}`}
+          />
+
+          <Script id="ga-script" strategy="lazyOnload">
+            {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${process.env.GOOGLE_ANALYTICS}', {
+                page_path: window.location.pathname,
+              });
+        `}
+          </Script>
+        </Head>
         <body className={inter.className}>
           <ModalProvider />
           <Toaster />
