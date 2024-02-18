@@ -21,24 +21,24 @@ export default function RootLayout({ children }) {
   return (
     <ClerkProvider>
       <html lang="en">
-        <Head>
+        <head>
           <Script
-            strategy="lazyOnload"
-            src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GOOGLE_ANALYTICS}`}
+            src="https://www.googletagmanager.com/gtag/js?id=G-XXTLZKPN6X"
+            strategy="afterInteractive"
           />
-
-          <Script id="ga-script" strategy="lazyOnload">
+          <Script id="google-analytics" strategy="afterInteractive">
             {`
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', '${process.env.GOOGLE_ANALYTICS}', {
-                page_path: window.location.pathname,
-              });
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){window.dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-XXTLZKPN6X');
         `}
           </Script>
-        </Head>
+
+        </head>
         <body className={inter.className}>
+          {/* <GoogleAnalytics gaId="G-XXTLZKPN6X" /> */}
           <ModalProvider />
           <Toaster />
           {children}
