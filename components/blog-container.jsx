@@ -6,17 +6,12 @@ import Link from "next/link";
 
 const BlogContainer = ({ data }) => {
   return (
-    <div className="space-y-10">
-      <div>
-        <Image
-          src={"https://source.unsplash.com/random/1080×1920/?girl,woman=1"}
-          height={1000}
-          width={1000}
-          className="w-full aspect-video object-cover object-center hover:shadow-xl hover:shadow-gray-400 rounded-md shadow-md duration-300"
-        />
-      </div>
-      <div className="space-y-10">
-        <span className="text-5xl font-extrabold">More Stories</span>
+    <div className="space-y-20">
+      <div className="space-y-10 ">
+        <div className="w-1/2 mx-auto">
+        <p className="text-5xl text-center font-bold">Our Blogs </p>
+        <p className="text-center mt-2 text-muted-foreground">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem ipsa id vitae unde distinctio nulla eos accusamus tenetur sapiente cumque!</p>
+        </div>
         <div>
           <div className="mx-auto space-y-8">
             <div className="grid grid-cols-1 gap-x-6 gap-y-8 md:grid-cols-2 ">
@@ -29,10 +24,7 @@ const BlogContainer = ({ data }) => {
                         height={500}
                         alt=""
                         className="object-cover w-[90%] h-52 hover:shadow-xl hover:shadow-gray-400 rounded-md shadow-md duration-300"
-                        src={
-                          post?.mainImage?.asset?.url ||
-                          "https://source.unsplash.com/random/1080×1920/?girl,woman=2"
-                        }
+                        src={post.contImg}
                       />
                     </div>
                     <div className="flex flex-col flex-1 py-6">

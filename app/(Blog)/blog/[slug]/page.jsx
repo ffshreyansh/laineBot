@@ -3,6 +3,7 @@ import { client } from "@/sanity/lib/client";
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import Navbar from "@/components/navbar";
 
 async function getData(slug) {
   const post = await client.fetch(
@@ -11,9 +12,9 @@ async function getData(slug) {
       title,
       "name": author->name,
       "slug": slug.current,
+      "contImg":  mainImage.asset->url,
       description,
-      mainImage,
-      author->{"name": name}
+      author->{"name": name, "profilePicture": image.asset->url},
     }
   `,
     { slug }
@@ -24,21 +25,21 @@ async function getData(slug) {
 export const dynamic = "force-dynamic";
 
 const BlogPost = async ({ params }) => {
-  // console.log(params);
+
   const data = await getData(params.slug);
 
   console.log(data);
 
   return (
-    <div className="max-w-7xl mx-auto my-20">
+    <div className="max-w-7xl mx-auto mt-28">
       <div>
-        <h1 className="text-7xl font-bold">Blog</h1>
+        <Navbar />
       </div>
       <div>
         <div className="mx-auto mt-10">
           <div className="flex flex-col max-w-7xl mx-auto overflow-hidden rounded">
             <Image
-              src="https://source.unsplash.com/random/480x360"
+              src={data.contImg}
               height={700}
               width={1000}
               alt=""
@@ -49,8 +50,14 @@ const BlogPost = async ({ params }) => {
                 <span className="inline-block text-2xl font-semibold sm:text-3xl">
                   {data.title}
                 </span>
-                <p className="text-xs ">
-                  By{" "}
+                <p className="text-xs flex items-center gap-2 cursor-pointer">
+                  <Image
+                    src={data.author.profilePicture}
+                    height={30}
+                    width={30}
+                    alt=""
+                    className=" rounded-full object-cover object-center"
+                  />
                   <span className="text-xs hover:underline">{data.name}</span>
                 </p>
               </div>

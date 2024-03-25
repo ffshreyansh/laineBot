@@ -9,10 +9,10 @@ async function getData() {
     *[_type == "post"] {
       title,
       "name": author->name,
-      "slug": slug.current,
+      "slug": slug.current,      
+      "contImg":  mainImage.asset->url,
       description,
-      mainImage,
-      author->{"name": name}
+      author->{"name": name, "profilePicture": image.asset->url}
     }
     `
   );
@@ -28,7 +28,7 @@ const Blog = async () => {
   // console.log(data);
 
   return (
-    <div className="max-w-6xl mx-auto my-20 space-y-10">
+    <div className="max-w-7xl mx-auto mt-32 space-y-10">
       <div>
         <Navbar/>
       </div>
