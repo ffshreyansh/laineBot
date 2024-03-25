@@ -8,6 +8,7 @@ async function getData() {
     *[_type == "post"] {
       title,
       "name": author->name,
+      "slug": slug.current,
       description,
       mainImage,
       author->{"name": name}
@@ -23,7 +24,7 @@ const Blog = async () => {
   // console.log(params);
   const data = await getData();
 
-  //   console.log(data);
+  // console.log(data);
 
   return (
     <div className="max-w-6xl mx-auto my-20 space-y-10">
