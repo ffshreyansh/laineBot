@@ -1,4 +1,5 @@
 import BlogContainer from "@/components/blog-container";
+import Navbar from "@/components/navbar";
 import { client } from "@/sanity/lib/client";
 import React from "react";
 
@@ -29,7 +30,7 @@ const Blog = async () => {
   return (
     <div className="max-w-6xl mx-auto my-20 space-y-10">
       <div>
-        <h1 className="text-7xl font-extrabold">Blog</h1>
+        <Navbar/>
       </div>
       <BlogContainer data={data} />
     </div>

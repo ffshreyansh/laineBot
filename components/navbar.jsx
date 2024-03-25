@@ -58,6 +58,7 @@ const Navbar = () => {
       </Link>
       <div className='items-center justify-between gap-10 font-semibold hidden lg:flex cursor-pointer'>
         <Link href={'/'} onClick={() => scrollToElement('home')} className={isCurrentPage('/') ? 'text-[#f05aad]' : 'text-black hover:text-[#f05aad] transition-all'}>Home</Link>
+        <Link href={'/blog'} className={isCurrentPage('/blog') ? 'text-[#f05aad]' : 'text-black hover:text-[#f05aad] transition-all'}>Blogs</Link>
         <span onClick={() => scrollToElement('about')} className={isCurrentPage('/about') ? 'text-[#f05aad]' : 'text-black hover:text-[#f05aad] transition-all'}>About</span>
         <span onClick={() => scrollToElement('faq')} className={isCurrentPage('/faq') ? 'text-[#f05aad]' : 'text-black hover:text-[#f05aad] transition-all'}>FAQs</span>
         <span onClick={() => scrollToElement('contact')} className={isCurrentPage('/contact') ? 'text-[#f05aad]' : 'text-black hover:text-[#f05aad] transition-all'}>Contact</span>
