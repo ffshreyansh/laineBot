@@ -1,9 +1,10 @@
-'use client'
+"use client";
 import { useEffect, useState } from "react";
 import { client } from "@/sanity/lib/client";
 
 const Post = (props) => {
   const [data, setData] = useState(null);
+  console.log(data);
 
   useEffect(() => {
     // Define an async function inside useEffect
@@ -39,11 +40,14 @@ const Post = (props) => {
 
 export async function getPosts(context) {
   // const { slug = "" } = context.params
-  const slug = 'alaine-blog'
-  const post = await client.fetch(`
+  const slug = "alaine-blog";
+  const post = await client.fetch(
+    `
     *[_type == "post" && slug.current == $slug][0]{title, "name": author->name}
-  `, { slug })
+  `,
+    { slug }
+  );
   return post;
 }
 
-export default Post
+export default Post;
