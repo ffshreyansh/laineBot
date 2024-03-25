@@ -1,3 +1,4 @@
+import BlogContainer from "@/components/blog-container";
 import { client } from "@/sanity/lib/client";
 import React from "react";
 
@@ -13,13 +14,21 @@ async function getData(slug) {
 
 export const dynamic = "force-dynamic";
 
-const Blog = async ({ params }) => {
+const BlogPost = async ({ params }) => {
   // console.log(params);
   const data = await getData(params.slug);
 
-  console.log(data);
+  // console.log(data);
 
-  return <div>{data.title}</div>;
+  return (
+    <div className="max-w-7xl mx-auto my-20">
+      <div>
+        <h1 className="text-7xl font-bold">Blog</h1>
+      </div>
+      {data?.title}
+      {data?.name}
+    </div>
+  );
 };
 
-export default Blog;
+export default BlogPost;
