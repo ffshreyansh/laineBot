@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/components/navbar";
+import { PortableText } from "@portabletext/react";
 
 async function getData(slug) {
   const post = await client.fetch(
@@ -13,7 +14,7 @@ async function getData(slug) {
       "name": author->name,
       "slug": slug.current,
       "contImg":  mainImage.asset->url,
-      description,
+      body,
       author->{"name": name, "profilePicture": image.asset->url},
     }
   `,
@@ -25,7 +26,6 @@ async function getData(slug) {
 export const dynamic = "force-dynamic";
 
 const BlogPost = async ({ params }) => {
-
   const data = await getData(params.slug);
 
   console.log(data);
@@ -63,13 +63,7 @@ const BlogPost = async ({ params }) => {
               </div>
               <div className="">
                 <p>
-                  {data?.description} Lorem ipsum dolor sit amet consectetur
-                  adipisicing elit. Esse libero, beatae reiciendis magnam
-                  eveniet eligendi voluptatum eum exercitationem repudiandae
-                  voluptatibus doloribus. Possimus incidunt unde temporibus modi
-                  eaque nemo sapiente. Quia consequuntur voluptas modi incidunt
-                  esse? Nesciunt voluptatum esse molestias, ea quisquam quidem
-                  quaerat vel corporis aut earum ex doloribus placeat?
+                  <PortableText value={data.body} />
                 </p>
               </div>
             </div>
