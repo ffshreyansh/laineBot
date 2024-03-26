@@ -9,9 +9,9 @@ async function getData() {
     *[_type == "post"] {
       title,
       "name": author->name,
-      "slug": slug.current,      
-      "contImg":  mainImage.asset->url,
-      description,
+      "slug": slug.current,
+      "imgg": mainImage.asset->url,      
+      body,
       author->{"name": name, "profilePicture": image.asset->url}
     }
     `
@@ -25,7 +25,7 @@ const Blog = async () => {
   // console.log(params);
   const data = await getData();
 
-  // console.log(data);
+  console.log("DD",data);
 
   return (
     <div className="max-w-7xl mx-auto mt-32 space-y-10">

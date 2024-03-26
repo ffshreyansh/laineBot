@@ -5,36 +5,38 @@ import Image from "next/image";
 import Link from "next/link";
 
 const BlogContainer = ({ data }) => {
+  console.log("Cont Data", data);
   return (
     <div className="space-y-20">
       <div className="space-y-10 ">
-        <div className="w-1/2 mx-auto">
-        <p className="text-5xl text-center font-bold">Our Blogs </p>
-        <p className="text-center mt-2 text-muted-foreground">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem ipsa id vitae unde distinctio nulla eos accusamus tenetur sapiente cumque!</p>
+        <div className="w-full lg:w-1/2 mx-auto">
+          <p className="text-5xl text-center font-bold">Our Blogs </p>
+          <p className="text-center mt-2 text-muted-foreground">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem ipsa id vitae unde distinctio nulla eos accusamus tenetur sapiente cumque!</p>
         </div>
         <div>
           <div className="mx-auto space-y-8">
-            <div className="grid grid-cols-1 gap-x-6 gap-y-8 md:grid-cols-2 ">
+            <div className="grid grid-cols-1 gap-x-6 gap-y-8 md:grid-cols-2 p-2 lg:p-0">
               {data.map((post) => (
-                <Link href={`/blog/${post.slug}`}>
+                <Link href={`/blog/${post.slug}`} className="hover:shadow-lg rounded-br-lg rounded-bl-lg duration-300">
                   <article key={post._id} className="flex flex-col">
                     <div aria-label={post.title}>
-                      <Image
-                        width={500}
-                        height={500}
-                        alt=""
-                        className="object-cover w-[90%] h-52 hover:shadow-xl hover:shadow-gray-400 rounded-md shadow-md duration-300"
-                        src={post.contImg}
-                      />
+                      <img src={post.imgg}
+                        className="object-cover w-full h-80 rounded-tr-lg rounded-tl-lg shadow-md duration-300 mx-auto"
+                        alt={`${post.title} image`} />
                     </div>
-                    <div className="flex flex-col flex-1 py-6">
-                      <div className="text-xs tracki uppercase hover:underline text-rose-600">
+                    <div className="flex flex-col flex-1 p-6 rounded-lg">
+                      <div className="text-xs tracki  hover:underline text-rose-600 flex items-center gap-2">
+                        <img src={post.author.profilePicture} alt={`${post.author.name} profile picture`}
+                          height={30}
+                          width={30}
+                          className=" rounded-full object-cover object-center"
+                        />
                         {post.author.name}
                       </div>
                       <h3 className="flex-1 py-2 text-lg font-semibold">
                         {post.title}
                       </h3>
-                      <p>{post.description}</p>
+                      <p class="truncate w-100">{post.body[0].children[0].text}</p>
                       <div className="flex flex-wrap justify-between pt-3 space-x-2 text-xs">
                         <span>{post._createdAt}</span>{" "}
                       </div>
