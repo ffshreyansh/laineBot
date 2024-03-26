@@ -15,6 +15,7 @@ async function getData(slug) {
       "slug": slug.current,
       "contImg":  mainImage.asset->url,
       body,
+      "date": dateTime(_updatedAt),
       author->{"name": name, "profilePicture": image.asset->url},
     }
   `,
@@ -99,6 +100,8 @@ const BlogPost = async ({ params }) => {
   const data = await getData(params.slug);
 
   console.log(data);
+  const formattedDate = new Date(data.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+
 
   return (
     <div className="max-w-7xl mx-auto mt-28">
@@ -128,7 +131,8 @@ const BlogPost = async ({ params }) => {
                     alt=""
                     className=" rounded-full object-cover object-center"
                   />
-                  <span className="text-xs hover:underline">{data.name}</span>
+                  <span className="text-xs hover:underline">{data.name}</span>|
+             Updated at {formattedDate}
                 </p>
               </div>
               <div className="">
