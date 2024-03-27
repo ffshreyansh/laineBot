@@ -35,9 +35,8 @@ export const RichTextComponents = {
           src={imageBuilder.image(value).url()}
           alt={value.alt || " "}
           loading="lazy"
-          className={`my-8 mx-auto ${
-            isInline ? "max-w-xs" : "max-w-full"
-          } rounded-lg shadow-lg`}
+          className={`my-8 mx-auto ${isInline ? "max-w-xs" : "max-w-full"
+            } rounded-lg shadow-lg`}
           style={{ aspectRatio: width / height }}
         />
       );
@@ -80,13 +79,13 @@ export const RichTextComponents = {
   },
   marks: {
     link: ({ children, value }) => {
-      const rel = !value.href.startsWith("/")
-        ? "noreferrer noopener"
-        : undefined;
+      // const rel = !value.href.startsWith("/")
+      //   ? "noreferrer noopener"
+      //   : undefined;
       return (
         <Link
-          href={value.href}
-          rel={rel}
+          href={value?.$href ?? ''}
+          // rel={rel}
           className="text-blue-500 hover:text-blue-700"
         >
           {children}
@@ -132,7 +131,7 @@ const BlogPost = async ({ params }) => {
                     className=" rounded-full object-cover object-center"
                   />
                   <span className="text-xs hover:underline">{data.name}</span>|
-             Updated at {formattedDate}
+                  Updated on {formattedDate}
                 </p>
               </div>
               <div className="">
