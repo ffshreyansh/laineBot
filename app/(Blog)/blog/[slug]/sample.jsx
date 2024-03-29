@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/components/navbar";
 import { PortableText } from "@portabletext/react";
-import { IconArrowRight } from "@/components/ui/icons";
 
 async function getData(slug) {
   const post = await client.fetch(
@@ -107,22 +106,23 @@ const BlogPost = async ({ params }) => {
   });
 
   return (
-    <div className="max-w-4xl mx-auto mt-28">
+    <div className="max-w-7xl mx-auto mt-28">
       <div>
         <Navbar />
-      </div>
-      <div className="md:mt-40 mt-20">
-        <Link href={"/blog"} className="flex gap-3 items-center">
-          <IconArrowRight className={"rotate-180 size-7"} />{" "}
-          <span className="text-xl text-gray-700">Back to Blogs</span>
-        </Link>
       </div>
       <div>
         <div className="mx-auto mt-10">
           <div className="flex flex-col max-w-7xl mx-auto overflow-hidden rounded">
-            <div className="">
-              <div className="space-y-2 mt-16">
-                <span className="inline-block text-2xl font-bold sm:text-4xl">
+            <Image
+              src={data.contImg}
+              height={700}
+              width={1000}
+              alt=""
+              className="w-full h-[70vh] object-cover object-center"
+            />
+            <div className="p-6 pb-12 m-4 mx-auto -mt-16 space-y-6 lg:max-w-5xl sm:px-10 lg:rounded-md shadow-lg bg-white dark:bg-black">
+              <div className="space-y-2">
+                <span className="inline-block text-2xl font-semibold sm:text-3xl">
                   {data.title}
                 </span>
                 <p className="text-xs flex items-center gap-2 cursor-pointer">
@@ -137,17 +137,7 @@ const BlogPost = async ({ params }) => {
                   Updated on {formattedDate}
                 </p>
               </div>
-
-              <div className="mt-20">
-                <Image
-                  src={data.contImg}
-                  height={700}
-                  width={1000}
-                  alt=""
-                  className="w-full h-[70vh] object-cover object-center"
-                />
-              </div>
-              <div className="mt-20 mb-10">
+              <div className="">
                 <p>
                   <PortableText
                     value={data.body}
