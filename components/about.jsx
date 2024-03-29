@@ -21,6 +21,7 @@ const AboutComponent = () => {
     <motion.div
       className='w-full py-8 lg:py-20 flex flex-col lg:flex-row-reverse items-center justify-start lg:justify-between gap-8 lg:gap-0 h-fit'
       ref={ref}
+      id='about'
     >
       <motion.div
         className='flex flex-col text-center lg:text-left items-start w-full lg:w-1/2 h-fit justify-center gap-4 lg:gap-10 px-3 lg:px-8'

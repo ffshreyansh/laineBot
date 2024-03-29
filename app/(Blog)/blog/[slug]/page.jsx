@@ -5,6 +5,7 @@ import Link from "next/link";
 import Navbar from "@/components/navbar";
 import { PortableText } from "@portabletext/react";
 import { IconArrowRight } from "@/components/ui/icons";
+import NavBlogs from "@/components/nav-blogs";
 
 async function getData(slug) {
   const post = await client.fetch(
@@ -58,13 +59,13 @@ export const RichTextComponents = {
   },
   block: {
     h1: ({ children }) => (
-      <h1 className="text-4xl font-bold my-4">{children}</h1>
+      <h1 className="text-4xl font-medium my-4">{children}</h1>
     ),
     h2: ({ children }) => (
-      <h2 className="text-3xl font-bold my-4">{children}</h2>
+      <h2 className="text-3xl font-medium my-4">{children}</h2>
     ),
     h3: ({ children }) => (
-      <h3 className="text-2xl font-bold my-4">{children}</h3>
+      <h3 className="text-2xl font-medium my-4">{children}</h3>
     ),
     blockquote: ({ children }) => (
       <blockquote className="border-l-4 pl-4 my-4 italic text-gray-700 border-gray-300">
@@ -109,23 +110,23 @@ const BlogPost = async ({ params }) => {
   return (
     <div className="max-w-4xl mx-auto mt-28">
       <div>
-        <Navbar />
+        <NavBlogs />
       </div>
       <div className="md:mt-40 mt-20">
-        <Link href={"/blog"} className="flex gap-3 items-center">
-          <IconArrowRight className={"rotate-180 size-7"} />{" "}
-          <span className="text-xl text-gray-700">Back to Blogs</span>
+        <Link href={"/blog"} className="flex gap-3 items-center p-2">
+          <IconArrowRight className={"rotate-180 size-4"} />{" "}
+          <span className="text-lg text-gray-700">Back to Blogs</span>
         </Link>
       </div>
       <div>
         <div className="mx-auto mt-10">
           <div className="flex flex-col max-w-7xl mx-auto overflow-hidden rounded">
-            <div className="">
+            <div className="p-2">
               <div className="space-y-2 mt-16">
-                <span className="inline-block text-2xl font-bold sm:text-4xl">
+                <span className="inline-block text-4xl mb-4 font-bold sm:text-5xl text-[#1E293B] font-serif">
                   {data.title}
                 </span>
-                <p className="text-xs flex items-center gap-2 cursor-pointer">
+                <p className="text-xs flex items-center gap-3 cursor-pointer">
                   <Image
                     src={data.author.profilePicture}
                     height={30}
@@ -133,8 +134,8 @@ const BlogPost = async ({ params }) => {
                     alt=""
                     className=" rounded-full object-cover object-center"
                   />
-                  <span className="text-xs hover:underline">{data.name}</span>|
-                  Updated on {formattedDate}
+                  <span className="text-sm font-medium hover:underline">{data.name} </span> 
+                    | {formattedDate}
                 </p>
               </div>
 
@@ -147,7 +148,7 @@ const BlogPost = async ({ params }) => {
                   className="w-full h-[70vh] object-cover object-center"
                 />
               </div>
-              <div className="mt-20 mb-10">
+              <div className="mt-20 mb-10 font-serif text-[#1E293B]">
                 <p>
                   <PortableText
                     value={data.body}
