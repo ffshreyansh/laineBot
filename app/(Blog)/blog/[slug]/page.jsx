@@ -14,6 +14,7 @@ async function getData(slug) {
       "slug": slug.current,
       "contImg":  mainImage.asset->url,
       body,
+      "date": dateTime(_updatedAt),
       author->{"name": name, "profilePicture": image.asset->url},
     }
   `,
@@ -33,9 +34,8 @@ export const RichTextComponents = {
           src={imageBuilder.image(value).url()}
           alt={value.alt || " "}
           loading="lazy"
-          className={`my-8 mx-auto ${
-            isInline ? "max-w-xs" : "max-w-full"
-          } rounded-lg shadow-lg`}
+          className={`my-8 mx-auto ${isInline ? "max-w-xs" : "max-w-full"
+            } rounded-lg shadow-lg`}
           style={{ aspectRatio: width / height }}
         />
       );
@@ -78,13 +78,13 @@ export const RichTextComponents = {
   },
   marks: {
     link: ({ children, value }) => {
-      const rel = !value.href.startsWith("/")
-        ? "noreferrer noopener"
-        : undefined;
+      // const rel = !value.href.startsWith("/")
+      //   ? "noreferrer noopener"
+      //   : undefined;
       return (
         <Link
-          href={value.href}
-          rel={rel}
+          href={value?.$href ?? ''}
+          // rel={rel}
           className="text-blue-500 hover:text-blue-700"
         >
           {children}
@@ -98,6 +98,8 @@ const BlogPost = async ({ params }) => {
   const data = await getData(params.slug);
 
   console.log(data);
+  const formattedDate = new Date(data.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+
 
   return (
     <div className="max-w-7xl mx-auto mt-28">
@@ -127,7 +129,8 @@ const BlogPost = async ({ params }) => {
                     alt=""
                     className=" rounded-full object-cover object-center"
                   />
-                  <span className="text-xs hover:underline">{data.name}</span>
+                  <span className="text-xs hover:underline">{data.name}</span>|
+                  Updated on {formattedDate}
                 </p>
               </div>
               <div className="">

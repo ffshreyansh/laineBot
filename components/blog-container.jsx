@@ -11,8 +11,7 @@ const BlogContainer = ({ data }) => {
       <div className="space-y-10 ">
         <div className="w-full lg:w-1/2 mx-auto">
           <p className="text-5xl text-center font-bold">Our Blogs </p>
-          <p className="text-center mt-2 text-muted-foreground">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem ipsa id vitae unde distinctio nulla eos accusamus tenetur sapiente cumque!</p>
-        </div>
+          </div>
         <div>
           <div className="mx-auto space-y-8">
             <div className="grid grid-cols-1 gap-x-6 gap-y-8 md:grid-cols-2 p-2 lg:p-0">
